@@ -1079,7 +1079,8 @@ body.light-theme{
   }
 
   .about__description{
-    padding: 0 4rem 0 0;
+    padding: 0 0 0 0;
+    /* padding: 0 4rem 0 0; */
     margin-bottom: 2.5rem;
   }
 
