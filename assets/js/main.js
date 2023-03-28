@@ -34,6 +34,33 @@ modalClose.forEach((mc) => {
 });
 
 
+/*=============== TIMELINE TABS ===============*/
+const tabs = document.querySelectorAll('[data-target]'),
+  tabContents = document.querySelectorAll('[data-content]')
+
+tabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    const target = document.querySelector(tab.dataset.target)
+
+    tabContents.forEach(tabContent => {
+      tabContent.classList.remove('timeline__active')
+    })
+
+    target.classList.add('timeline__active')
+
+    tabs.forEach(tab => {
+      tab.classList.remove('timeline__active')
+    })
+
+    tab.classList.add('timeline__active')
+
+
+  })
+});
+
+
+
+
 /*=============== MIXITUP FILTER PORTFOLIO ===============*/
 let mixerPortfolio = mixitup('.work__container', {
     selectors: {
@@ -62,23 +89,33 @@ linkWork.forEach(l=> l.addEventListener('click', activeWork))
 /*=============== SCROLL SECTIONS ACTIVE LINK ===============*/
 const sections = document.querySelectorAll('section[id]')
 
-const scrollActive = () =>{
-  	const scrollY = window.pageYOffset
-
-	sections.forEach(current =>{
-		const sectionHeight = current.offsetHeight,
-			  sectionTop = current.offsetTop - 58,
-			  sectionId = current.getAttribute('id'),
-			  sectionsClass = document.querySelector('.nav__menu a[href*=' + sectionId + ']')
-
-		if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight){
-			sectionsClass.classList.add('active-link')
-		}else{
-			sectionsClass.classList.remove('active-link')
-		}
-	})
-}
+// const scrollActive = () =>{
+//   	const scrollY = window.pageYOffset
+//
+// 	sections.forEach(current =>{
+// 		const sectionHeight = current.offsetHeight,
+// 			  sectionTop = current.offsetTop - 58,
+// 			  sectionId = current.getAttribute('id'),
+// 			  sectionsClass = document.querySelector('.nav__menu a[href*=' + sectionId + ']')
+//
+// 		if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight){
+// 			sectionsClass.classList.add('active-link')
+// 		}else{
+// 			sectionsClass.classList.remove('active-link')
+// 		}
+// 	})
+// }
 // window.addEventListener('scroll', scrollActive)
+
+// var header = document.getElementById("header");
+// var btns = header.getElementsByClassName("nav__link");
+// for (var i = 0; i < btns.length; i++) {
+//   btns[i].addEventListener("click", function() {
+//   var current = document.getElementsByClassName("active-link");
+//   current[0].className = current[0].className.replace(" active-link", "");
+//   this.className += " active-link";
+//   });
+// }
 
 /*=============== LIGHT DARK THEME ===============*/
 
