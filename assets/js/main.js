@@ -78,7 +78,7 @@ const scrollActive = () =>{
 		}
 	})
 }
-window.addEventListener('scroll', scrollActive)
+// window.addEventListener('scroll', scrollActive)
 
 /*=============== LIGHT DARK THEME ===============*/
 
