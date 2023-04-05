@@ -214,7 +214,7 @@ sr.reveal(`.home__social, .home__scroll` , {delay: 900, origin: 'bottom'})
 
 // Get the form element and add an event listener for when it's submitted
 
-emailjs.init("_vG0VrvNLeDgWvnys");
+emailjs.init("RIpwqmILoLPluLZlL");
 
 const form = document.querySelector('.contact__form');
 form.addEventListener('submit', (event) => {
@@ -232,7 +232,7 @@ form.addEventListener('submit', (event) => {
       const overlay = document.querySelector('.alert-overlay');
       const messageBox = overlay.querySelector('.alert-message');
       // messageBox.textContent = "Thank you for reaching out! \nI'm excited to hear from you and appreciate your interest in getting in touch. \nI'll get back to you as soon as possible. \nIn the meantime, feel free to browse my portfolio to see examples of my previous work!";
-      messageBox.textContent = 'There was an error sending your message.\nPlease try again later.';
+      messageBox.textContent = "Thank you for reaching out!\nI'm excited to hear from you and appreciate your interest in getting in touch.\nI'll get back to you as soon as possible.\nIn the meantime, feel free to browse my portfolio to see examples of my previous work!";
       overlay.style.display = 'block';
 
       // Clear the form
