@@ -163,3 +163,93 @@ const sr = ScrollReveal({
 sr.reveal(`.home__data`)
 sr.reveal(`.home__handle`, {delay: 700})
 sr.reveal(`.home__social, .home__scroll` , {delay: 900, origin: 'bottom'})
+
+
+
+// ================ CONTACT FORM ================================
+
+//emailjs.init("_vG0VrvNLeDgWvnys");
+// var form = document.getElementById("contact-form");
+//
+// form.addEventListener("submit", function(event) {
+//   event.preventDefault(); // prevent the form from submitting
+//
+//   var nameInput = document.querySelector(".contact__form-input[name='name']");
+//   var name = nameInput.value;
+//
+//   var emailInput = document.querySelector(".contact__form-input[name='email']");
+//   var email = emailInput.value;
+//
+//   var projectInput = document.querySelector(".contact__form-input[name='project']");
+//   var project = projectInput.value;
+
+  // console.log("name" , name);
+  //
+  // console.log("email", email);
+  //
+  // console.log("project", project);
+
+//   var templateParams = {
+//     name: name,
+//     email: email,
+//     project: project
+//   };
+//
+//   emailjs.send("sams_service_id", "template_avmvuda", templateParams)
+//     .then(function(response) {
+//
+//       const alert = document.createElement('div');
+//       alert.classList.add('alert', 'alert-success');
+//       alert.textContent = "Thank you for reaching out! I'm excited to hear from you and appreciate your interest in getting in touch. I'll get back to you as soon as possible. In the meantime, feel free to browse my portfolio to see examples of my previous work!";
+//       form.appendChild(alert);
+//
+//
+//       // alert("Thank you for reaching out! I'm excited to hear from you and appreciate your interest in getting in touch. I'll get back to you as soon as possible. In the meantime, feel free to browse my portfolio to see examples of my previous work!")
+//       // console.log("Email sent:", response);
+//     }, function(error) {
+//       console.error("Email failed to send:", error);
+//     });
+// });
+
+
+// Get the form element and add an event listener for when it's submitted
+
+emailjs.init("_vG0VrvNLeDgWvnys");
+
+const form = document.querySelector('.contact__form');
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+
+  // Get the values from the form
+  const name = form.querySelector('.contact__form-input[name="name"]').value;
+  const email = form.querySelector('.contact__form-input[name="email"]').value;
+  const message = form.querySelector('.contact__form-input[name="project"]').value;
+
+  // Use EmailJS to send the email
+  emailjs.send("sams_service_id", "template_avmvuda", { name, email, message })
+    .then(() => {
+      // Show a success message
+      const overlay = document.querySelector('.alert-overlay');
+      const messageBox = overlay.querySelector('.alert-message');
+      // messageBox.textContent = "Thank you for reaching out! \nI'm excited to hear from you and appreciate your interest in getting in touch. \nI'll get back to you as soon as possible. \nIn the meantime, feel free to browse my portfolio to see examples of my previous work!";
+      messageBox.textContent = 'There was an error sending your message.\nPlease try again later.';
+      overlay.style.display = 'block';
+
+      // Clear the form
+      form.reset();
+    })
+    .catch(() => {
+      // Show an error message
+      const overlay = document.querySelector('.alert-overlay');
+      const messageBox = overlay.querySelector('.alert-message');
+      messageBox.textContent = 'There was an error sending your message. Please try again later.';
+      overlay.style.display = 'block';
+    });
+});
+
+// Add an event listener for the close button
+const overlay = document.querySelector('.alert-overlay');
+const closeButton = overlay.querySelector('.close');
+closeButton.addEventListener('click', () => {
+  overlay.style.display = 'none';
+});

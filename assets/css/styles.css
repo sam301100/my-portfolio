@@ -588,10 +588,11 @@ body.light-theme{
   font-size: var(--h3-font-size);
   font-weight: var(--font-medium);
   cursor: pointer;
+  color: var(--first-color);
 }
 
 .timeline__button:hover{
-  color: var(--first-color);
+  color: black;
 }
 
 .timeline__icon{
@@ -647,7 +648,7 @@ body.light-theme{
 }
 
 .timeline__button.timeline__active{
-  color: var(--first-color);
+  color: black;
 }
 
 /*=============== SERVICES ===============*/
@@ -1279,4 +1280,63 @@ body.light-theme{
     padding: .4rem;
     border-radius: .5rem;
   }
+}
+
+
+
+/* Add a semi-transparent overlay with a dark background */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  display: none;
+}
+
+/* CSS to style the alert overlay */
+.alert-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+}
+
+.alert-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  background-color: white;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #aaa;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: #555;
+}
+
+.alert-message {
+  padding: 20px;
+  font-size: 16px;
+  line-height: 1.5;
 }

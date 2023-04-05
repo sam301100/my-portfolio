@@ -99,8 +99,8 @@
                     <h3 class="contact__card-title">Phone</h3>
                     <span class="contact__card-data">858-327-1737</span>
 
-                    <a href="#" target="_blank" class="contact__button">
-                      Write me <i class="bx bx-right-arrow-alt contact__button-icon"></i>
+                    <a href="tel:8583271737" target="_blank" class="contact__button">
+                      Call me <i class="bx bx-right-arrow-alt contact__button-icon"></i>
                     </a>
                   </div>
 
@@ -118,31 +118,43 @@
               </div>
 
               <div class="contact__content">
-                <h3 class="contact__title">Write me your project</h3>
+                <h3 class="contact__title">Write me your message</h3>
 
 
-                <form class="contact__form" action=" ">
+                <!-- <form class="contact__form" action=" "> -->
+                <form class="contact__form" action=" " id="contact-form">
+
                   <div class="contact__form-div">
                     <label for="" class="contact__form-tag">Name</label>
-                    <input type="text" class="contact__form-input" placeholder="Insert your name">
+                    <input type="text" class="contact__form-input" name="name" placeholder="Insert your name">
                   </div>
 
                   <div class="contact__form-div">
                     <label for="" class="contact__form-tag">Mail</label>
-                    <input type="email" class="contact__form-input" placeholder="Insert your email">
+                    <input type="email" class="contact__form-input" name="email" placeholder="Insert your email">
                   </div>
 
                   <div class="contact__form-div contact__form-area">
-                    <label for="" class="contact__form-tag">Project</label>
-                    <textarea name="" id="" rows="10" cols="30" placeholder="Write your project" class="contact__form-input"></textarea>
+                    <label for="" class="contact__form-tag">Message</label>
+                    <textarea name="project" id="" rows="10" cols="30" placeholder="Write your project" class="contact__form-input"></textarea>
                   </div>
 
-                  <button class="button">Send Message</button>
+                  <button class="button" type="submit">Send Message</button>
 
                 </form>
               </div>
 
             </div>
+
+
+            <!-- to create the alert overlay -->
+            <div class="alert-overlay" style="display: none;">
+              <div class="alert-box">
+                <button class="close">&times;</button>
+                <div class="alert-message"></div>
+              </div>
+            </div>
+
 
           </section>
 
@@ -178,8 +190,9 @@
 
         <!--=============== MIXITUP FILTER ===============-->
         <script src="assets/js/mixitup.min.js">
-
         </script>
+
+        <script src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"></script>
 
         <!--=============== MAIN JS ===============-->
         <script src="assets/js/main.js"></script>
